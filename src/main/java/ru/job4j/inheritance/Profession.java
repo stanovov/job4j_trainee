@@ -8,6 +8,13 @@ public class Profession {
     private String education;
     private LocalDate birthday;
 
+    public Profession(String name, String surname, String education, LocalDate birthday) {
+        this.name = name;
+        this.surname = surname;
+        this.education = education;
+        this.birthday = birthday;
+    }
+
     public String getName() {
         return name;
     }

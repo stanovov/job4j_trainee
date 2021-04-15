@@ -1,8 +1,18 @@
 package ru.job4j.inheritance;
 
+import java.time.LocalDate;
+
 public class Programmer extends Engineer {
     private ProgrammingLanguage mainLanguage;
     private String qualificationLevel;
+
+    public Programmer(String name, String surname, String education,
+                      LocalDate birthday, int countCompletedProjects,
+                      ProgrammingLanguage mainLanguage, String qualificationLevel) {
+        super(name, surname, education, birthday, countCompletedProjects);
+        this.mainLanguage = mainLanguage;
+        this.qualificationLevel = qualificationLevel;
+    }
 
     public ProgrammingLanguage getMainProgrammingLanguage() {
         return mainLanguage;
