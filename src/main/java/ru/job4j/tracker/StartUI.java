@@ -59,16 +59,16 @@ public class StartUI {
                     System.out.println("Заявка с введенным id: " + id + " не найдена.");
                 }
             } else if (select == 5) {
-                System.out.println("==== Find item by Id ====");
-                System.out.println("Введите наименование заявки: ");
+                System.out.println("=== Find items by name ====");
+                System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
-                if (items.length == 0) {
-                    System.out.println("Заявки с таким именем не найдены");
-                } else {
+                if (items.length > 0) {
                     for (Item item : items) {
                         System.out.println(item);
                     }
+                } else {
+                    System.out.println("Заявки с именем: " + name + " не найдены.");
                 }
             } else if (select == 6) {
                 run = false;
