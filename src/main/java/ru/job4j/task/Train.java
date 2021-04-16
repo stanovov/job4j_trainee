@@ -1,7 +1,5 @@
 package ru.job4j.task;
 
-import ru.job4j.task.Vehicle;
-
 public class Train implements Vehicle {
     @Override
     public void move() {
