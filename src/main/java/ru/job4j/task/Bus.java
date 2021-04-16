@@ -1,6 +1,4 @@
-package ru.job4j.oop;
-
-import ru.job4j.poly.Vehicle;
+package ru.job4j.task;
 
 public class Bus implements Vehicle {
     @Override

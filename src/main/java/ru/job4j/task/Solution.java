@@ -1,4 +1,4 @@
-package ru.job4j.poly;
+package ru.job4j.task;
 
 public class Solution {
     public static void main(String[] args) {
