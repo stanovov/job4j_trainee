@@ -23,6 +23,18 @@ public class Tracker {
         return true;
     }
 
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        }
+        int start = index + 1;
+        int length = size - index;
+        System.arraycopy(items, start, items, index, length);
+        items[--size] = null;
+        return true;
+    }
+
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
         int length = 0;
