@@ -11,11 +11,12 @@ public class StartUI {
             System.out.println("Select:");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
-                System.out.println("==== Create a new Item ====");
-                System.out.println("Enter name: ");
+                System.out.println("=== Create a new Item ====");
+                System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
+                System.out.println("Добавленная заявка: " + item);
             } else if (select == 1) {
                 System.out.println("==== Show all items ====");
                 Item[] items = tracker.findAll();
