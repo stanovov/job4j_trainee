@@ -40,13 +40,13 @@ public class StartUI {
                     System.out.println("Ошибка замены заявки.");
                 }
             } else if (select == 3) {
-                System.out.println("==== Delete item ====");
-                System.out.println("Введите id заявки, которую вы хотите удалить: ");
+                System.out.println("=== Delete item ====");
+                System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 if (tracker.delete(id)) {
-                    System.out.println("Заявка успешно удалена.");
+                    System.out.println("Заявка удалена успешно.");
                 } else {
-                    System.out.println("Не удалось удалить заявку. Заявка с таким id не найдена.");
+                    System.out.println("Ошибка удаления заявки.");
                 }
             } else if (select == 4) {
                 System.out.println("==== Find item by Id ====");
