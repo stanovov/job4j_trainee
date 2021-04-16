@@ -49,14 +49,14 @@ public class StartUI {
                     System.out.println("Ошибка удаления заявки.");
                 }
             } else if (select == 4) {
-                System.out.println("==== Find item by Id ====");
-                System.out.println("Введите id заявки: ");
+                System.out.println("=== Find item by id ====");
+                System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 Item item = tracker.findById(id);
-                if (item == null) {
-                    System.out.println("Заявка с таким id не найдена");
-                } else {
+                if (item != null) {
                     System.out.println(item);
+                } else {
+                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
                 }
             } else if (select == 5) {
                 System.out.println("==== Find item by Id ====");
