@@ -5,8 +5,6 @@ public class StartUI {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Заявка"));
         Item findItem = tracker.findById(item.getId());
-        System.out.println("id - \"" + findItem.getId() + "\""
-                        + System.lineSeparator()
-                        + "name - \"" + findItem.getName() + "\"");
+        System.out.println(findItem);
     }
 }
