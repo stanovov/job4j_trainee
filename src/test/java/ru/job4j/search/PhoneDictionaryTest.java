@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class PhoneDictionaryTest {
     @Test
@@ -24,7 +24,6 @@ public class PhoneDictionaryTest {
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         ArrayList<Person> persons = phones.find("42");
-        ArrayList<Person> expected = new ArrayList<>();
-        assertThat(persons, is(expected));
+        assertTrue(persons.isEmpty());
     }
 }
