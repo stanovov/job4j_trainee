@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -125,7 +126,7 @@ public class StartUITest {
                 )
         );
         new StartUI(out).init(in, tracker, actions);
-        ArrayList<Item> items = tracker.findAll();
+        List<Item> items = tracker.findAll();
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator()
                         + "0. Show all items" + System.lineSeparator()
@@ -237,7 +238,7 @@ public class StartUITest {
                 )
         );
         new StartUI(out).init(in, tracker, actions);
-        ArrayList<Item> items = tracker.findByName(name);
+        List<Item> items = tracker.findByName(name);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator()
                         + "0. Find items by name" + System.lineSeparator()
