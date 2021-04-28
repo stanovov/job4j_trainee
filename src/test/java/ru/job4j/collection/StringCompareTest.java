@@ -87,4 +87,24 @@ public class StringCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
+
+    @Test
+    public void lowercaseCharOfLeftGreaterThanRightShouldBePositive() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "john",
+                "John"
+        );
+        assertThat(rst, greaterThan(0));
+    }
+
+    @Test
+    public void uppercaseCharOfLeftLessThanRightShouldBeNegative() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Stanovov",
+                "stanovov"
+        );
+        assertThat(rst, lessThan(0));
+    }
 }
