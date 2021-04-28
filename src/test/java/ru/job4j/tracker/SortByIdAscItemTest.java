@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
-public class SortByIdAskItemTest {
+public class SortByIdAscItemTest {
 
     @Test
     public void sort() {
@@ -25,7 +25,7 @@ public class SortByIdAskItemTest {
                 item5,
                 item2
         ));
-        Collections.sort(rsl, new SortByIdAskItem());
+        Collections.sort(rsl, new SortByIdAscItem());
         List<Item> expected = new ArrayList<>(List.of(
                 item1,
                 item2,
