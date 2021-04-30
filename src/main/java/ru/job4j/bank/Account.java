@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class Account {
     /**
-     * Реквизиты банковского счета хранятся в строке
+     * Реквизиты счета хранятся в строке
      */
     private String requisite;
     /**
