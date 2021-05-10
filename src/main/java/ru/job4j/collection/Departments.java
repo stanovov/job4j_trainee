@@ -23,14 +23,4 @@ public class Departments {
     public static void sortDesc(List<String> orgs) {
         orgs.sort(new DepDescComp());
     }
-
-    public static void main(String[] args) {
-        List<String> expect = Arrays.asList(
-                "k2", "k2/sk1", "k2/sk1/ssk1", "k2/sk2", "k2/sk2/ssk1",
-                "k1", "k1/sk1", "k1/sk1/ssk1", "k1/sk1/ssk2"
-        );
-        sortAsc(expect);
-        expect.forEach(System.out::println);
-    }
-
 }
