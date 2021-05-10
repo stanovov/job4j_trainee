@@ -9,7 +9,7 @@ public class Article {
         Set<String> originSet = new HashSet<>(
                 Arrays.asList(origin.replaceAll("\\p{P}", "").split(" "))
         );
-        String[] array = line.split(" ");
+        String[] array = line.replaceAll("\\p{P}", "").split(" ");
         for (String str : array) {
             if (!originSet.contains(str)) {
                 return false;
