@@ -4,32 +4,28 @@ import java.util.HashMap;
 
 public class FreezeStr {
     public static boolean eq(String left, String right) {
-        HashMap<Character, Integer> leftMap = countingNumberOfCharacters(left);
-        HashMap<Character, Integer> rightMap = countingNumberOfCharacters(right);
-        if (leftMap.size() != rightMap.size()) {
-            return false;
-        }
-        for (Character character : leftMap.keySet()) {
-            if (!rightMap.containsKey(character)) {
-                return false;
-            } else {
-                if (leftMap.get(character) != rightMap.get(character)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public static HashMap<Character, Integer> countingNumberOfCharacters(String str) {
         HashMap<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
+        for (int i = 0; i < left.length(); i++) {
+            char c = left.charAt(i);
             if (!map.containsKey(c)) {
                 map.put(c, 0);
             }
             map.computeIfPresent(c, (key, value) -> ++value);
         }
-        return map;
+        for (int i = 0; i < right.length(); i++) {
+            char c = right.charAt(i);
+            if (!map.containsKey(c)) {
+                return false;
+            } else {
+                int count = map.get(c);
+                count--;
+                if (count == 0) {
+                    map.remove(c);
+                } else {
+                    map.computeIfPresent(c, (key, value) -> --value);
+                }
+            }
+        }
+        return map.isEmpty();
     }
 }
