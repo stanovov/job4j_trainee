@@ -40,7 +40,6 @@ public class ProfilesTest {
         );
         List<Address> rsl = new Profiles().collect(profiles);
         List<Address> expected = List.of(
-                address,
                 address
         );
         assertThat(rsl, is(expected));
@@ -76,6 +75,54 @@ public class ProfilesTest {
                 address1,
                 address2,
                 address3
+        );
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenAddressesInDisarrayAndWithClones() {
+        Address address1 = new Address(
+                "Tver'",
+                "Donskogo",
+                32,
+                357
+        );
+        Address address2 = new Address(
+                "Moscow",
+                "Arthuhinoy",
+                21,
+                174
+        );
+        Address address3 = new Address(
+                "St. Petersburg",
+                "Ordzhonikidze",
+                2,
+                65
+        );
+        Address address4 = new Address(
+                "Archangelsk",
+                "Suftina",
+                1,
+                1
+        );
+        List<Profile> profiles = List.of(
+                new Profile(address1),
+                new Profile(address2),
+                new Profile(address2),
+                new Profile(address3),
+                new Profile(address3),
+                new Profile(address3),
+                new Profile(address4),
+                new Profile(address4),
+                new Profile(address4),
+                new Profile(address4)
+        );
+        List<Address> rsl = new Profiles().collect(profiles);
+        List<Address> expected = List.of(
+                address4,
+                address2,
+                address3,
+                address1
         );
         assertThat(rsl, is(expected));
     }
