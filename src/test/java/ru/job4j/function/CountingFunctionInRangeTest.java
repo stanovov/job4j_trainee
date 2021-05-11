@@ -26,8 +26,8 @@ public class CountingFunctionInRangeTest {
 
     @Test
     public void whenExponentialFunctionThenExponentialResult() {
-        List<Double> result = CountingFunctionInRange.diapason(1, 5, x -> Math.pow(x, x));
-        List<Double> expected = Arrays.asList(1D, 4D, 27D, 256D);
+        List<Double> result = CountingFunctionInRange.diapason(1, 5, x -> Math.pow(3, x));
+        List<Double> expected = Arrays.asList(3D, 9D, 27D, 81D);
         assertThat(result, is(expected));
     }
 }
