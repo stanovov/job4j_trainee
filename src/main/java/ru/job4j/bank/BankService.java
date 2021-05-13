@@ -1,9 +1,6 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Класс описывает работу банковского сервиса, который позволяет
@@ -37,9 +34,9 @@ public class BankService {
      * @param account банковский аккаунт, который добавляется
      */
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> accounts = users.get(user);
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            List<Account> accounts = users.get(user.get());
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
@@ -53,12 +50,11 @@ public class BankService {
      * @return При нахождении возвращает пользователя типа User, в другом случае
      * возвращается null.
      */
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
                 .filter(user -> user.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     /**
@@ -71,15 +67,14 @@ public class BankService {
      * @return При нахождении возвращает банковский счет типа Account, в другом случае
      * возвращается null.
      */
-    public Account findByRequisite(String passport, String requisite) {
-        Account rsl = null;
-        User user = findByPassport(passport);
-        if (user != null) {
-            return users.get(user)
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<Account> rsl = Optional.empty();
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            rsl = users.get(user.get())
                     .stream()
                     .filter(account -> account.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
         }
         return rsl;
     }
@@ -99,12 +94,14 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
-        Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && destAccount != null) {
-            if (srcAccount.getBalance() >= amount) {
-                srcAccount.setBalance(srcAccount.getBalance() - amount);
-                destAccount.setBalance(destAccount.getBalance() + amount);
+        Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount.isPresent() && destAccount.isPresent()) {
+            Account src = srcAccount.get();
+            Account dest = destAccount.get();
+            if (src.getBalance() >= amount) {
+                src.setBalance(src.getBalance() - amount);
+                dest.setBalance(dest.getBalance() + amount);
                 rsl = true;
             }
         }
