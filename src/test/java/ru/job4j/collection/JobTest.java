@@ -26,13 +26,13 @@ public class JobTest {
                 job5
         ));
         Collections.sort(rsl, new JobAscByName());
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job4,
                 job5,
                 job3,
                 job2,
                 job1
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 
@@ -51,13 +51,13 @@ public class JobTest {
                 job5
         ));
         Collections.sort(rsl, new JobDescByName());
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job1,
                 job2,
                 job3,
                 job5,
                 job4
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 
@@ -76,13 +76,13 @@ public class JobTest {
                 job2
         ));
         Collections.sort(rsl, new JobAscByPriority());
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job1,
                 job2,
                 job3,
                 job4,
                 job5
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 
@@ -101,13 +101,13 @@ public class JobTest {
                 job2
         ));
         Collections.sort(rsl, new JobDescByPriority());
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job5,
                 job4,
                 job3,
                 job2,
                 job1
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 
@@ -124,12 +124,12 @@ public class JobTest {
                 job1
         ));
         Collections.sort(rsl, new JobAscByName().thenComparing(new JobAscByPriority()));
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job1,
                 job2,
                 job3,
                 job4
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 
@@ -146,12 +146,12 @@ public class JobTest {
                 job1
         ));
         Collections.sort(rsl, new JobDescByName().thenComparing(new JobDescByPriority()));
-        List<Job> expected = new ArrayList<>(List.of(
+        List<Job> expected = List.of(
                 job1,
                 job2,
                 job3,
                 job4
-        ));
+        );
         assertThat(rsl, is(expected));
     }
 }
