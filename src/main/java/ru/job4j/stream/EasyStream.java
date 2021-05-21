@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public class EasyStream {
     private List<Integer> list;
 
-    public EasyStream(List<Integer> list) {
+    private EasyStream(List<Integer> list) {
         this.list = list;
     }
 
@@ -18,24 +18,24 @@ public class EasyStream {
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        for (int i = 0; i < list.size(); i++) {
-            list.set(i, fun.apply(list.get(i)));
+        List<Integer> tmpList = new ArrayList<>();
+        for (Integer integer : list) {
+            tmpList.add(fun.apply(integer));
         }
-        return this;
+        return new EasyStream(tmpList);
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        Iterator<Integer> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Integer value = iterator.next();
-            if (!fun.test(value)) {
-                iterator.remove();
+        List<Integer> tmpList = new ArrayList<>();
+        for (Integer integer : list) {
+            if (fun.test(integer)) {
+                tmpList.add(integer);
             }
         }
-        return this;
+        return new EasyStream(tmpList);
     }
 
     public List<Integer> collect() {
-        return list;
+        return new ArrayList<>(list);
     }
 }
