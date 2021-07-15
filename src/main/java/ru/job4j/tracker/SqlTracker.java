@@ -10,6 +10,13 @@ public class SqlTracker implements Store {
 
     private Connection cn;
 
+    public SqlTracker() {
+    }
+
+    public SqlTracker(Connection connection) {
+        this.cn = connection;
+    }
+
     public void init() {
         try (InputStream in
                      = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
@@ -60,7 +67,7 @@ public class SqlTracker implements Store {
                              "UPDATE items SET name = ?, created = ? WHERE id = ?")) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
-            statement.setInt(3, item.getId());
+            statement.setInt(3, id);
             rsl = statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
