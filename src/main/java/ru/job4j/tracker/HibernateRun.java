@@ -22,6 +22,8 @@ public class HibernateRun {
             Item rsl = findById(item.getId(), sf);
             System.out.println(rsl);
             delete(rsl.getId(), sf);
+            Item item1 = create(new Item("Item with desc #1", "Some text.."), sf);
+            Item item2 = create(new Item("Item with desc #2", "Item description.."), sf);
             findAll(sf).forEach(System.out::println);
         } catch (Exception e) {
             e.printStackTrace();
