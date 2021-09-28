@@ -14,8 +14,5 @@ public class FlatIt {
                         Spliterators.spliteratorUnknownSize(its, characteristics), false)
                 )
                 .collect(Collectors.toList());
-//        return Stream.iterate(it.next(), i -> it.hasNext(), i -> it.next())
-//                .flatMap(its -> Stream.iterate(its.next(), i -> its.hasNext(), i -> its.next()))
-//                .collect(Collectors.toList());
     }
 }
