@@ -25,6 +25,7 @@ notifications:
 
 # Start PostgreSQL
 services:
+  - memcached
   - postgresql
 
 # Create a database

@@ -34,6 +34,13 @@ public class SqlTrackerTest {
                     config.getProperty("password")
 
             );
+            connection.prepareStatement(
+                    "CREATE TABLE IF NOT EXISTS items ("
+                    + " id serial primary key,"
+                    + " name text,"
+                    + " created timestamp "
+                    + ");"
+            ).executeUpdate();
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
