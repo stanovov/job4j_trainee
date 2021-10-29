@@ -1,54 +1,16 @@
-[![Build Status](https://travis-ci.com/stanovov/job4j_tracker.svg?branch=master)](https://travis-ci.com/stanovov/job4j_tracker)
-[![codecov](https://codecov.io/gh/stanovov/job4j_tracker/branch/master/graph/badge.svg)](https://codecov.io/gh/stanovov/job4j_tracker)
+[![Build Status](https://app.travis-ci.com/stanovov/job4j_trainee.svg?branch=master)](https://app.travis-ci.com/stanovov/job4j_trainee)
+[![codecov](https://codecov.io/gh/stanovov/job4j_trainee/branch/master/graph/badge.svg?token=8QK3IJVPUB)](https://codecov.io/gh/stanovov/job4j_trainee)
 
-# job4j_tracker
+![](https://img.shields.io/badge/Java-14-orange)
+![](https://img.shields.io/badge/JUnit-4-yellowgreen)
+![](https://img.shields.io/badge/Checkstyle-lightgrey)
 
-+ [О проекте](#0-проекте)
-+ [Технологии](#Технологии)
-+ [Запуск и сборка](#Сборка-и-запуск)
-+ [Использование](#Использование)
-+ [Контакты](#Контакты)
+# job4j_trainee
 
-## О проекте
+Проект содержит решения уровня "Стажер" курса Job4j. 
 
-Этот проект представляет собой базовое консольное приложение CRUD и демонстрирует принципы ООП. Для хранения данных 
-используется Hibernate.
+В данном репозитории прорабатываются темы:
 
-## Технологии
-
-+ Сборщик проектов **Maven**;
-+ Backend - **Java 14**;
-+ Для хранения данных используется фреймворк - **Hibernate**;
-+ СУБД - **PostgreSQL**;
-+ Непрерывная интеграция - **Travis CI**;
-+ Тесты - **JUnit 4**;
-+ Покрытие кода тестами - **Codecov**;
-+ Инструмент для анализа стиля кода - **Checkstyle**;
-
-## Сборка и запуск
-
-### Запуск через терминал
-
-1.Собрать jar через Maven
-
-`mvn install -Dmaven.test-skip=true`
-
-2.Запустить jar файл
-
-`java -jar target/tracker.jar`
-
-### Запуск через IDE
-
-Перейти к папке `src/main/java` и файлу `ru.job4j.tracker.StartUI`
-
-## Использование
-
-![ ](images/app.png)
-
-## Контакты
-
-Становов Семён Сергеевич
-
-Email: sestanovov@gmail.com
-
-Telegram: [@stanovovss](https://t.me/stanovovss)
++ ООП;
++ Коллекции и структуры данных;
++ Функциональные интерфейсы, Lambda и Stream API;
